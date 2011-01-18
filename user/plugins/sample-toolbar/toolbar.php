@@ -1,6 +1,9 @@
 <?php 
 
-$url = $_GET['url']
+$url = $_GET['url'];
+$shorturl = $_GET['short'];
+
+echo $shorturl;
 
 ?>
 

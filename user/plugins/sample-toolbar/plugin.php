@@ -12,8 +12,6 @@ Disclaimer: Toolbars ruin the user experience. Be warned.
 global $ozh_toolbar;
 $ozh_toolbar['do'] = false;
 $ozh_toolbar['keyword'] = '';
-$encodedurl = urldecode($url);
-$skimurl = $url; //will need changing once skimlinks is implemented
 
 // When a redirection to a shorturl is about to happen, register variables
 yourls_add_action( 'redirect_shorturl', 'ozh_toolbar_add' );
@@ -27,6 +25,8 @@ function ozh_toolbar_add( $args ) {
 yourls_add_action( 'pre_redirect', 'ozh_toolbar_do' );
 function ozh_toolbar_do( $args ) {
 	global $ozh_toolbar;
+	
+	$shorturl = yourls_sanitize_keyword( $keyword );
 	
 	// Does this redirection need a toolbar?
 	if( !$ozh_toolbar['do'] )
@@ -84,7 +84,7 @@ function ozh_toolbar_do( $args ) {
 	<link rel="stylesheet" href="$pluginurl/css/toolbar.css" type="text/css" media="all" />
 </head>
 <frameset rows="100,*" frameborder="no" border="0" framespacing="0">
-  <frame src="$pluginurl/toolbar.php?url=$url" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
+  <frame src="$pluginurl/toolbar.php?url=$url&short=$shorturl" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
   <frame src="$url" name="mainFrame" id="mainFrame" title="mainFrame" />
 </frameset>
 <script type="text/javascript" src="$pluginurl/js/toolbar.js"></script>
