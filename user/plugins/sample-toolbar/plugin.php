@@ -79,7 +79,7 @@ function ozh_toolbar_do( $args ) {
 	<link rel="stylesheet" href="$pluginurl/css/toolbar.css" type="text/css" media="all" />
 </head>
 <frameset rows="100,*" frameborder="no" border="0" framespacing="0">
-  <frame src="$pluginurl/toolbar.html" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
+  <frame src="$pluginurl/toolbar.php?url=$ozh_toolbar['keyword']" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
   <frame src="$url" name="mainFrame" id="mainFrame" title="mainFrame" />
 </frameset>
 <script type="text/javascript" src="$pluginurl/js/toolbar.js"></script>

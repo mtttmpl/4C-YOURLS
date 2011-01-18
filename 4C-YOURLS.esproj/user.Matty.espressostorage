@@ -22,7 +22,7 @@
 			</dict>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Users/Matty/Documents/Projects/4C-YOURLS/toolbar.html</string>
+				<string>file://localhost/users/Matty/Documents/Projects/4C-YOURLS/user/plugins/sample-toolbar/toolbar.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
