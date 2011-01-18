@@ -4,7 +4,7 @@ require_once( dirname(__FILE__).'/includes/load-yourls.php' );
 ?>
 <html>
 <head>
-<title>4Charity: The URL shortener that cares</title>
+<title>YOURLS Public Interface Sample</title>
 <style>
 body {
 	background:#E3F3FF;
@@ -64,7 +64,7 @@ div#sharebox {height:auto; width:600px; margin-top: 20px}
 </head>
 
 <body>
-<h1>4Charity: The URL shortener that cares</h1>
+<h1>YOURLS: Your Own URL Shortener</h1>
 
 <div id="container">
 
@@ -113,6 +113,10 @@ HTML;
 	?>
 
 	<!-- Example bookmarklet. Be sure to rename the link target from "sample-public-front-page.php" to whatever you'll use (probably index.php) -->
-	<p><a href="javascript:void(location.href='<?php echo YOURLS_SITE; ?>/index.php?format=simple&action=shorturl&url='+escape(location.href))">bookmarklet</a>
+	<p><a href="javascript:void(location.href='<?php echo YOURLS_SITE; ?>/sample-public-front-page.php?format=simple&action=shorturl&url='+escape(location.href))">bookmarklet</a>
 
-<?php yourls_html_footer() ?>
+</div>
+
+<div id="footer"><p>Powered by <a href="http://yourls.org/" title="YOURLS">YOURLS</a> v<?php echo YOURLS_VERSION; ?></p></div>
+</body>
+</html>

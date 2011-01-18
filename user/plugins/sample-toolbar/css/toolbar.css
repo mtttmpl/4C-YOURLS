@@ -18,7 +18,7 @@ body {
 	font-size: 12px;
 	position:absolute;
 	top:0;
-	height:35px;
+	height:100px;
 	width:100%;
 	background:#e3f3ff url(../img/toolbar_bg.png) repeat-x bottom center;
 	color:#2A85B3;
@@ -36,12 +36,18 @@ body {
 	text-decoration:underline;
 }
 
-#yourls-about, #yourls-topsy, #yourls-delicious, #yourls-selfclose {
+#yourls-about, #yourls-delicious, #yourls-selfclose {
 	margin-left:10px;
 	float:left;
 	display:block;
 	top:5px;
 	position:relative;
+}
+
+#toolbar-ad {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5px;
 }
 
 #yourls-about a {
@@ -51,9 +57,6 @@ body {
 	font-weight:bold;
 }
 
-#yourls-topsy {
-	width:300px;
-}
 
 #yourls-selfclose {
 	float:right;
@@ -64,15 +67,6 @@ body {
 	display:block;
 	text-indent:-9999px;
 	background:transparent url(../img/close_button.gif) center center no-repeat;
-	width:20px;
-	height:20px;
-	float:left;
-}
-
-#yourls-always {
-	display:none;
-	text-indent:-9999px;
-	background:transparent url(../img/close_button_red.gif) center center no-repeat;
 	width:20px;
 	height:20px;
 	float:left;

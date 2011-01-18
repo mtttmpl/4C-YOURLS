@@ -5,7 +5,7 @@ function yourls_html_logo() {
 	yourls_do_action( 'pre_html_logo' );
 	?>
 	<h1>
-		<a href="<?php echo yourls_admin_url('index.php') ?>" title="YOURLS"><span>YOURLS</span>: <span>Y</span>our <span>O</span>wn <span>URL</span> <span>S</span>hortener<br/>
+		<a href="http://4c.to/index.php" title="4Charity"><span>4Charity: The URL shortener that cares<br/>
 		<img src="<?php yourls_site_url(); ?>/images/yourls-logo.png" alt="YOURLS" title="YOURLS" border="0" style="border: 0px;" /></a>
 	</h1>
 	<?php
@@ -57,7 +57,7 @@ function yourls_html_head( $context = 'index', $title = '' ) {
 	$bodyclass .= ( yourls_is_mobile_device() ? 'mobile' : 'desktop' );
 	
 	// Page title
-	$_title = 'YOURLS &mdash; Your Own URL Shortener | ' . YOURLS_SITE;
+	$_title = '4Charity: The URL shortener that cares';
 	$title = $title ? $title . " &laquo; " . $_title : $_title;
 	$title = yourls_apply_filter( 'html_title', $title );
 	
@@ -116,7 +116,7 @@ function yourls_html_footer() {
 	$num_queries = $ydb->num_queries > 1 ? $ydb->num_queries.' queries' : $ydb->num_queries.' query';
 	?>
 	</div> <?php // wrap ?>
-	<div id="footer"><p>Powered by <a href="http://yourls.org/" title="YOURLS">YOURLS</a> v<?php echo YOURLS_VERSION; echo ' &ndash; '.$num_queries; ?></p></div>
+	<div id="footer"><p>&copy; <?php echo date('Y'); ?> 4Charity. &nbsp; <a href="http://4c.to/tools">Tools</a> &nbsp; <a href="http://4c.to/advertise">Advertise</a> &nbsp; <a href="http://4c.to/about">About</a> &nbsp; <a href="http://4c.to/contact">Contact</a></p></div>
 	<?php if( defined('YOURLS_DEBUG') && YOURLS_DEBUG == true ) {
 		echo '<p>'. $ydb->all_queries .'<p>';
 	} ?>
@@ -136,7 +136,7 @@ function yourls_html_addnew( $url = '', $keyword = '' ) {
 				<div><strong>Enter the URL</strong>:<input type="text" id="add-url" name="url" value="<?php echo $url; ?>" class="text" size="80" />
 				Optional: <strong>Custom short URL</strong>:<input type="text" id="add-keyword" name="keyword" value="<?php echo $keyword; ?>" class="text" size="8" />
 				<?php yourls_nonce_field( 'add_url', 'nonce-add' ); ?>
-				<input type="button" id="add-button" name="add-button" value="Shorten The URL" class="button" onclick="add();" /></div>
+				<input type="button" id="add-button" name="add-button" value="Shorten The URL" class="button" onClick="add();" /></div>
 			</form>
 			<div id="feedback" style="display:none"></div>
 		</div>
@@ -200,7 +200,7 @@ function yourls_html_tfooter( $params = array() ) {
 						<div style="float:right;">
 							<input type="submit" id="submit-sort" value="Filter" class="button primary" />
 							&nbsp;
-							<input type="button" id="submit-clear-filter" value="Clear Filter" class="button" onclick="window.parent.location.href = 'index.php'" />
+							<input type="button" id="submit-clear-filter" value="Clear Filter" class="button" onClick="window.parent.location.href = 'index.php'" />
 						</div>
 
 						
@@ -275,9 +275,9 @@ function yourls_share_box( $longurl, $shorturl, $title='', $text='', $shortlink_
 				<textarea id="tweet_body"><?php echo $share; ?></textarea>
 			</div>
 			<p id="share_links">Share with 
-				<a id="share_tw" href="http://twitter.com/home?status=<?php echo $_share; ?>" title="Tweet this!" onclick="share('tw');return false">Twitter</a>
-				<a id="share_fb" href="http://www.facebook.com/share.php?u=<?php echo $_url; ?>" title="Share on Facebook" onclick="share('fb');return false;">Facebook</a>
-				<a id="share_ff" href="http://friendfeed.com/share/bookmarklet/frame#title=<?php echo $_share; ?>" title="Share on Friendfeed" onclick="javascript:share('ff');return false;">FriendFeed</a>
+				<a id="share_tw" href="http://twitter.com/home?status=<?php echo $_share; ?>" title="Tweet this!" onClick="share('tw');return false">Twitter</a>
+				<a id="share_fb" href="http://www.facebook.com/share.php?u=<?php echo $_url; ?>" title="Share on Facebook" onClick="share('fb');return false;">Facebook</a>
+				<a id="share_ff" href="http://friendfeed.com/share/bookmarklet/frame#title=<?php echo $_share; ?>" title="Share on Friendfeed" onClick="javascript:share('ff');return false;">FriendFeed</a>
 				<?php
 				yourls_do_action( 'share_links' , $longurl, $shorturl, $title, $text );
 				?>
@@ -355,8 +355,8 @@ function yourls_html_menu() {
 	<?php if ( yourls_is_private() ) { ?>
 		<li>Hello <strong><?php echo YOURLS_USER; ?></strong> (<a href="?action=logout" title="Logout">Logout</a>)</li>
 	<?php } ?>
-		<li><a href="<?php echo yourls_admin_url('index.php') ?>">Admin Interface</a></li>
 	<?php if( yourls_is_admin() ) { ?>
+   		<li><a href="<?php echo yourls_admin_url('index.php') ?>">Admin Interface</a></li>
 		<li><a href="<?php echo yourls_admin_url('tools.php'); ?>">Tools</a></li>
 		<li><a href="<?php echo yourls_admin_url('plugins.php'); ?>">Plugins</a></li>
 		<?php yourls_list_plugin_admin_pages(); ?>	

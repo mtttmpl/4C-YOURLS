@@ -10,7 +10,19 @@
 		<array>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Users/Matty/Documents/Projects/4C-YOURLS/user/plugins/sample-toolbar/plugin.php</string>
+				<string>file://localhost/users/Matty/Documents/Projects/4C-YOURLS/user/plugins/sample-toolbar/plugin.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/users/Matty/Documents/Projects/4C-YOURLS/user/plugins/sample-toolbar/css/toolbar.css</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/Matty/Documents/Projects/4C-YOURLS/toolbar.html</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
