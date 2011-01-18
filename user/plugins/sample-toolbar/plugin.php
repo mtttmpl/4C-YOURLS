@@ -70,7 +70,7 @@ function ozh_toolbar_do( $args ) {
 	echo <<<PAGE
 <html>
 <head>
-	<title>$pagetitle &mdash; YOURLS</title>
+	<title>$pagetitle &mdash; 4Charity</title>
 	<link rel="icon" type="image/gif" href="$www/images/favicon.gif" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
@@ -80,32 +80,14 @@ function ozh_toolbar_do( $args ) {
 </head>
 <body>
 <div id="yourls-bar">
-	<div id="yourls-about">
-		Short link powered by <a href="http://yourls.org/">YOURLS</a> and created $created. $hits.
-		<!-- $sql queries -->
-	</div>
 	
 	<div id="yourls-delicious">
-	<img src="http://static.delicious.com/img/delicious.small.gif" height="10" width="10" alt="Delicious" />
-	<a id="yourls-delicious-link" title="Bookmark on delicious" href="http://delicious.com/save" onclick="window.open('http://delicious.com/save?v=5&noui&jump=close&url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title), 'delicious','toolbar=no,width=550,height=550'); return false;"> Bookmark on Delicious</a>
-	</div>
-
-	<script type="text/javascript" id="topsy_global_settings">
-	var topsy_theme = "light-blue";
-	var topsy_nick = " ";
-	var topsy_style = "small";
-	var topsy_order = "count,retweet,badge";
-	</script>
-	<div id="yourls-topsy" class="topsy_widget_data">
-		<!--{
-		        "url": "$www/{$ozh_toolbar['keyword']}",
-		        "title": "$_pagetitle",
-		}-->
+		<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="$url" layout="button_count" show_faces="false" width="450"></fb:like>
+		<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 	</div>
 	
 	<div id="yourls-selfclose">
 		<a id="yourls-once" href="$url" title="Close this toolbar">close</a>
-		<a id="yourls-always" href="$url" title="Never show me this toolbar again">close</a>
 		
 	</div>
 </div>
