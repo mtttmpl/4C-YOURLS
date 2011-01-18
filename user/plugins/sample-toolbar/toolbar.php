@@ -40,7 +40,7 @@ $url = $_GET['url']
 
 	<div id="yourls-selfclose">
 
-		<a id="yourls-once" href="<?php echo $url ?>" target="_Perant" title="Close this toolbar">close</a>
+		<a id="yourls-once" href="<?php echo $url ?>" target="_top" title="Close this toolbar">close</a>
 
 	</div>
 
