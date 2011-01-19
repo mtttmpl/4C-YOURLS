@@ -72,7 +72,7 @@ function ozh_toolbar_do( $args ) {
 	
 	// Plugin URL (no URL is hardcoded)
 	$pluginurl = YOURLS_PLUGINURL . '/'.yourls_plugin_basename( dirname(__FILE__) );
-
+	
 	// All set. Draw the toolbar itself.
 	echo <<<PAGE
 <html>
