@@ -1,10 +1,6 @@
 <?php 
-
 $url = $_GET['url'];
-$shorturl = $_GET['short'];
-
-echo $shorturl;
-
+$cshort = $_GET['short'];
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -17,7 +13,7 @@ echo $shorturl;
 <body class="toolbar-body">
 <div id="yourls-bar">
 	<div id="toolbar-logo">
-		<a href="http://4c.to"><img src="http://4c.to/images/yourls-logo.png" /></a>
+		<a href="http://4c.to" target="_top"><img src="http://4c.to/images/yourls-logo.png" /></a>
 	</div>
 <div id="wrapper">
 	<div id="toolbar-ad">
@@ -31,10 +27,10 @@ echo $shorturl;
 	<div id="toolbar-social">
 		<div id="yourls-facebook">
 
-			<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="$url" layout="button_count" show_faces="false" width="auto"></fb:like>
+			<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="<?php echo $cshort ?>" layout="button_count" show_faces="false" width="100"></fb:like>
 		</div><br /><p />
 		<div id="yourls-twitter">
-			<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+			<a href="http://twitter.com/share?url=<?php echo $cshort ?>" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 
 		</div>
 	</div>
