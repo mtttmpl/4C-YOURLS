@@ -1,7 +1,7 @@
 <?php
 require_once( dirname(dirname(__FILE__)).'/includes/load-yourls.php' );
 
-yourls_html_head( 'tools', 'Cool YOURLS Tools' );
+yourls_html_head( 'tools', 'Cool  Tools' );
 yourls_html_logo();
 ?>
 
