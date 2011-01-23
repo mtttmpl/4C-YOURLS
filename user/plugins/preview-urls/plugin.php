@@ -50,7 +50,7 @@ function ozh_preview_show( $keyword ) {
         </ul>
         <p>If you still want to visit this link, please <strong><a href="$base/$keyword">click here</a></strong>.</p>
         
-        <p>Thank you for using my shortening service.</p>
+        <p>Thank you for using <a href="http://4c.to">4c.to</a>'s shortening service.</p>
 HTML;
         
         yourls_html_footer();
