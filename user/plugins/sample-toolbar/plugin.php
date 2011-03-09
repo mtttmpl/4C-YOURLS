@@ -1,13 +1,16 @@
 <?php
 /*
-Plugin Name: YOURLS Toolbar
+Plugin Name: The Magic
 Plugin URI: http://yourls.org/
-Description: Add a social toolbar to your redirected short URLs. Fork this plugin if you want to make your own toolbar.
+Description: Where 99% of the custom stuff happens.
 Version: 1.0
-Author: Ozh
-Author URI: http://ozh.org/
-Disclaimer: Toolbars ruin the user experience. Be warned.
+Author: Matt & Ben
+Author URI: http://4c.to/
+Disclaimer: DON'T disable without this the site will braek.
 */
+
+
+// add toolbar if user agent is not a bot
 
 global $ozh_toolbar;
 $ozh_toolbar['do'] = false;
@@ -26,8 +29,6 @@ yourls_add_action( 'pre_redirect', 'ozh_toolbar_do' );
 function ozh_toolbar_do( $args ) {
 	global $ozh_toolbar;
 	
-	$shorturl = yourls_sanitize_keyword( $keyword );
-	
 	// Does this redirection need a toolbar?
 	if( !$ozh_toolbar['do'] )
 		return;
@@ -35,12 +36,13 @@ function ozh_toolbar_do( $args ) {
 	// Do we have a cookie stating the user doesn't want a toolbar?
 	if( isset( $_COOKIE['yourls_no_toolbar'] ) && $_COOKIE['yourls_no_toolbar'] == 1 )
 		return;
-	
+		
 	// Get URL and page title
 	$url = $args[0];
 	$pagetitle = yourls_get_keyword_title( $ozh_toolbar['keyword'] );
-	$encodedurl = urldecode($url);
+	$encodedurl = urlencode($url); //encode url for inclusion in skimlinks url
 	$skimurl = $url; //will need changing once skimlinks is implemented
+	$cshort = "http://4c.to" . $_SERVER['REQUEST_URI'];
 	
 
 	// Update title if it hasn't been stored yet
@@ -70,20 +72,18 @@ function ozh_toolbar_do( $args ) {
 	
 	// Plugin URL (no URL is hardcoded)
 	$pluginurl = YOURLS_PLUGINURL . '/'.yourls_plugin_basename( dirname(__FILE__) );
-	
-	//if youtube url embed the video instead
-	function getHost($Address) { 
-	   $parseUrl = parse_url(trim($Address)); 
-	   return trim($parseUrl[host] ? $parseUrl[host] : array_shift(explode('/', $parseUrl[path], 2))); 
-	} 
-	$isyoutube = getHost($url);
-	if ($isyoutube == 'youtube.com') || ($isyoutube = 'www.youtube.com') {
-		$parsed_url = parse_url($url);
-		parse_str($parsed_url[query], $parsed_query);
-		print_r($parsed_query);
-		$url = 'http://www.youtube.com/embed/' . $parsed_query[v];
-	}
-	
+		//if youtube url embed the video instead
+		function getHost($Address) { 
+		   $parseUrl = parse_url(trim($Address)); 
+		   return trim($parseUrl[host] ? $parseUrl[host] : array_shift(explode('/', $parseUrl[path], 2))); 
+		} 
+		$isyoutube = getHost($url);
+		if ($isyoutube == 'youtube.com') || ($isyoutube = 'www.youtube.com') {
+			$parsed_url = parse_url($url);
+			parse_str($parsed_url[query], $parsed_query);
+			print_r($parsed_query);
+			$url = 'http://www.youtube.com/embed/' . $parsed_query[v];
+		}
 	// All set. Draw the toolbar itself.
 	echo <<<PAGE
 <html>
@@ -97,8 +97,8 @@ function ozh_toolbar_do( $args ) {
 	<link rel="stylesheet" href="$pluginurl/css/toolbar.css" type="text/css" media="all" />
 </head>
 <frameset rows="100,*" frameborder="no" border="0" framespacing="0">
-  <frame src="$pluginurl/toolbar.php?url=$url&short=$shorturl" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
-  <frame src="$url" name="mainFrame" id="mainFrame" title="mainFrame" />
+  <frame src="$pluginurl/toolbar.php?url=$skimurl&short=$cshort" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
+  <frame src="$skimurl" name="mainFrame" id="mainFrame" title="mainFrame" />
 </frameset>
 <script type="text/javascript" src="$pluginurl/js/toolbar.js"></script>
 <noframes><body>

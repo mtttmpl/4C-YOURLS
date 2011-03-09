@@ -53,7 +53,7 @@ if( preg_match( "@^([$pattern]+)\+(all)?/?$@", $request, $matches ) ) {
 if( preg_match( "@^[a-zA-Z]+://.+@", $request, $matches ) ) {
 	$url = yourls_sanitize_url( $matches[0] );
 	yourls_do_action( 'load_template_redirect_admin', $url );
-	yourls_redirect( yourls_admin_url('index.php').'?u='.rawurlencode( $url ), 302 );
+	yourls_redirect( 'http://4c.to/index.php?format=simple&action=shorturl'.'&url='.rawurlencode( $url ), 302 );
 	exit;
 }
 

@@ -116,7 +116,7 @@ function yourls_html_footer() {
 	$num_queries = $ydb->num_queries > 1 ? $ydb->num_queries.' queries' : $ydb->num_queries.' query';
 	?>
 	</div> <?php // wrap ?>
-	<div id="footer"><p>&copy; <?php echo date('Y'); ?> 4Charity. &nbsp; <a href="http://4c.to/tools">Tools</a> &nbsp; <a href="http://4c.to/advertise">Advertise</a> &nbsp; <a href="http://4c.to/about">About</a> &nbsp; <a href="http://4c.to/contact">Contact</a></p></div>
+	<div id="footer"><p>&copy; <?php echo date('Y'); ?> 4Charity. &nbsp; <a href="http://4c.to/">Home</a> &nbsp; <a href="http://4c.to/tools">Tools</a> &nbsp; <a href="http://4c.to/advertise">Advertise</a> &nbsp; <a href="http://4c.to/about">About</a> &nbsp; <a href="http://4c.to/contact">Contact</a></p></div>
 	<?php if( defined('YOURLS_DEBUG') && YOURLS_DEBUG == true ) {
 		echo '<p>'. $ydb->all_queries .'<p>';
 	} ?>
