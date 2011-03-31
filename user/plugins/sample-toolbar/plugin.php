@@ -72,7 +72,18 @@ function ozh_toolbar_do( $args ) {
 	
 	// Plugin URL (no URL is hardcoded)
 	$pluginurl = YOURLS_PLUGINURL . '/'.yourls_plugin_basename( dirname(__FILE__) );
-	
+		//if youtube url embed the video instead
+		function getHost($Address) { 
+		   $parseUrl = parse_url(trim($Address)); 
+		   return trim($parseUrl[host] ? $parseUrl[host] : array_shift(explode('/', $parseUrl[path], 2))); 
+		} 
+		$isyoutube = getHost($url);
+		if ($isyoutube == 'youtube.com') || ($isyoutube = 'www.youtube.com') {
+			$parsed_url = parse_url($url);
+			parse_str($parsed_url[query], $parsed_query);
+			print_r($parsed_query);
+			$url = 'http://www.youtube.com/embed/' . $parsed_query[v];
+		}
 	// All set. Draw the toolbar itself.
 	echo <<<PAGE
 <html>
