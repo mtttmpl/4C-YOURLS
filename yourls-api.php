@@ -6,7 +6,7 @@ yourls_maybe_require_auth();
 $action = ( isset( $_REQUEST['action'] ) ? $_REQUEST['action'] : null );
 
 yourls_do_action( 'api', $action );
-	
+    
 switch( $action ) {
 
 	// Shorten a URL
